@@ -1,8 +1,6 @@
 package com.mmm.payments.model;
 
 
-import com.mmm.payments.model.config.TokenGenerator;
-
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -15,24 +13,19 @@ public class Payments {
     @DecimalMin(message = "Amount can't be negative ", value = "0.0", inclusive = false)
     private double amount;
     @NotBlank(message = "Currency is mandatory")
-    private java.lang.String currency;
+    private String currency;
     @NotBlank(message = "Iban is mandatory")
-    private java.lang.String debtor_iban;
-
+    private String debtor_iban;
     @NotBlank(message = "Iban is mandatory")
-    private java.lang.String creditor_iban;
-    private java.lang.String details;
-    private java.lang.String creditorBankBicCode;
-
+    private String creditor_iban;
+    private String details;
+    private String creditorBankBicCode;
     @NotNull(message = "Payment type is mandatory")
     private PaymentTypes paymentsTypes;
-
-
     private String token;
 
 
-
-    public Payments(int id, double amount, java.lang.String currency, java.lang.String debtor_iban, java.lang.String creditor_iban, java.lang.String details, java.lang.String creditorBankBicCode, PaymentTypes paymentsTypes, String token) {
+    public Payments(int id, double amount, String currency, String debtor_iban, String creditor_iban, String details, String creditorBankBicCode, PaymentTypes paymentsTypes, String token) {
         this.id = id;
         this.amount = amount;
         this.currency = currency;
@@ -57,7 +50,7 @@ public class Payments {
         return token;
     }
 
-    public void setToken(String  token) {
+    public void setToken(String token) {
         this.token = token;
     }
 
@@ -104,7 +97,7 @@ public class Payments {
         this.debtor_iban = debtor_iban;
     }
 
-    public java.lang.String getCreditor_iban() {
+    public String getCreditor_iban() {
         return creditor_iban;
     }
 

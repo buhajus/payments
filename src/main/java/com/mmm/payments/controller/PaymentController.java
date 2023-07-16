@@ -49,7 +49,7 @@ public class PaymentController {
         //TYPE3
         if (payments.getPaymentsTypes() == PaymentTypes.TYPE3 &&
                 !payments.getCurrency().equals("EUR") && !payments.getCurrency().equals("USD")) {
-            return PaymentTypes.TYPE3 + " payment only accept USD and EUR currency";
+            return PaymentTypes.TYPE3 + " payment only accept in USD and EUR currency";
         }
 
         if (payments.getPaymentsTypes() == PaymentTypes.TYPE3 && payments.getCreditorBankBicCode() == null) {
@@ -64,7 +64,7 @@ public class PaymentController {
 
     }
 
-    @DeleteMapping("/delete/{paymentsId}&token={token}")
+    @DeleteMapping("/delete?id={paymentsId}&token={token}&{time}=true")
     public String cancelTransaction(@PathVariable Integer paymentsId, @PathVariable String token) {
 
         Iterator<Payments> paymentsIterator = getPayments().iterator();
